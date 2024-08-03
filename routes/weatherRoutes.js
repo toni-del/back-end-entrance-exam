@@ -1,7 +1,7 @@
-const express = require('express');
+const express = require("express");
 const router = express.Router();
-const weatherController = require('../controllers/weatherController');
-const cacheController = require('../controllers/cacheController')
+const weatherController = require("../controllers/weatherController");
+const cacheController = require("../controllers/cacheController");
 
 /**
  * @swagger
@@ -44,7 +44,7 @@ const cacheController = require('../controllers/cacheController')
  *       500:
  *         description: Ошибка сервера при получении погоды
  */
-router.get('/weather', weatherController.getWeather)
+router.get("/weather", weatherController.getWeather);
 
 /**
  * @swagger
@@ -58,7 +58,7 @@ router.get('/weather', weatherController.getWeather)
  *       500:
  *         description: Ошибка сервера при очистке кэша
  */
-router.delete('/cache', cacheController.clear)
+router.delete("/cache", cacheController.clear);
 
 /**
  * @swagger
@@ -82,6 +82,6 @@ router.delete('/cache', cacheController.clear)
  *       500:
  *         description: Ошибка сервера при установке лимита размера кэша
  */
-router.put('/cache/:size', cacheController.setSizeLimit)
+router.put("/cache/:size", cacheController.setSizeLimit);
 
-module.exports = router
+module.exports = router;

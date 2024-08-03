@@ -1,13 +1,13 @@
-const cacheRepository = require('../repositories/cacheRepository')
+const cacheRepository = require("../repositories/cacheRepository");
 
 class CacheService {
-    clear() {
-        cacheRepository.clear()
-    }
+  clear() {
+    cacheRepository.clear();
+  }
 
-    setSizeLimit(newSize) {
-        cacheRepository.setSizeLimit(newSize)
-    }
+  setSizeLimit(newSize) {
+    cacheRepository.setSizeLimit(newSize);
+  }
 }
 
-module.exports = new CacheService()
+module.exports = new CacheService();
