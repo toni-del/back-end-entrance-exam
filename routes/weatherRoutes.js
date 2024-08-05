@@ -38,7 +38,7 @@ const cacheController = require("../controllers/cacheController");
  *           type: boolean
  *     responses:
  *       200:
- *         description: Успешный ответ с данными о погоде
+ *         description: Успешный ответ с данными о погоде. По заголовку X-Source можно понять, получены данные из внешнего API(external) или из кэша(cache).
  *       400:
  *         description: Неверный запрос
  *       500:
