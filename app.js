@@ -2,7 +2,8 @@ const express = require("express");
 const { swaggerUi, swaggerDocs } = require("./swagger/swagger");
 const app = express();
 const weatherRoutes = require("./routes/weatherRoutes");
-const PORT = process.env.PORT || 3000;
+const config = require('./config/config')
+const PORT = config.PORT || 3000;
 
 app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerDocs));
 app.use("/", weatherRoutes);
