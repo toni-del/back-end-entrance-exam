@@ -20,8 +20,11 @@ class CacheController {
         .status(400)
         .json({ error: "The parameter 'size' must be an integer" });
     }
+    if (Number(size) < 0) {
+      return res.status(400).json({error: "The parametr 'size' must be positive number"})
+    }
     try {
-      cacheService.setSizeLimit(size);
+      cacheService.setSizeLimit(Number(size));
       return res.sendStatus(204);
     } catch (error) {
       return res.status(500).json(error.message);

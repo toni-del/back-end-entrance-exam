@@ -8,11 +8,19 @@ class WeatherController {
         .status(400)
         .json({ error: "The parametr 'location' is required" });
     }
+    if (location == '') {
+      return res.status(400).json({error: "The parametr 'location' is missing"})
+    }
     try {
       let data;
-      if (cacheIgnore && cacheIgnore == "true")
+      if (cacheIgnore && cacheIgnore == "true") {
         data = await weatherService.updateWeather(location);
-      else data = await weatherService.getWeather(location);
+        res.setHeader("X-Source", "external");
+      } else {
+        data = await weatherService.getWeather(location);
+        if (data.fromCache) res.setHeader("X-Source", "cache");
+        else res.setHeader("X-Source", "external");
+      }
       if (data.err)
         return res.status(data.response.status).json(data.err.message);
       return res.status(200).json(data.response);

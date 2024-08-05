@@ -40,7 +40,8 @@ class CacheRepository {
       createdAt: Date.now(),
     }; //решил доабвить время добавления в кеш, т.к. выбрал в качестве api WeatherAPI, а значит
     //данные в кеше не выйдет держать долго, т.к. погода постоянно меняется
-    this.cache.set(key, data);
+    if (this.sizeLimit > 0)
+      this.cache.set(key, data);
   }
 
   clear() {

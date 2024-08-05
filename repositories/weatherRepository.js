@@ -10,12 +10,14 @@ class WeatherRepository {
       const result = {
         response: response.data,
         err: undefined,
+        fromCache: false,
       };
       return result;
     } catch (error) {
       const result = {
         response: error.response,
         err: error.response.data.error,
+        fromCache: false,
       };
       return result;
     }

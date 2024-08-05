@@ -7,8 +7,9 @@ class WeatherService {
     const cachedData = cacheRepository.get(location);
     if (cachedData != undefined) {
       const data = {
-        response: {cache: "cached", cachedData},
+        response: cachedData,
         err: undefined,
+        fromCache: true,
       };
       return data;
     }

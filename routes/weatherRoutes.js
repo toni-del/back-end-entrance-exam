@@ -33,7 +33,7 @@ const cacheController = require("../controllers/cacheController");
  *       - name: cacheIgnore
  *         in: query
  *         required: false
- *         description: "<b>true</b> - игнорировать кэш и запросить свежие данные из внешнего источника <br/> <b>false</b>, <b>--</b> - использовать данные из кэша, если данные с таким параметром '<i>location</i>' имеются<br/>Любое иное значение будет конвертированно в тип <b>boolean</b>"
+ *         description: "<b>true</b> - игнорировать кэш и запросить свежие данные из внешнего источника <br/> <b>false</b>, <b>--</b> - использовать данные из кэша, если данные с таким параметром '<i>location</i>' имеются<br/>Любое иное значение будет определенно как <b>false</b>"
  *         schema:
  *           type: boolean
  *     responses:
