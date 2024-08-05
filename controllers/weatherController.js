@@ -8,8 +8,10 @@ class WeatherController {
         .status(400)
         .json({ error: "The parametr 'location' is required" });
     }
-    if (location == '') {
-      return res.status(400).json({error: "The parametr 'location' is missing"})
+    if (location == "") {
+      return res
+        .status(400)
+        .json({ error: "The parametr 'location' is missing" });
     }
     try {
       let data;
